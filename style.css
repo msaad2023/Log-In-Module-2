@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+:root {
+  color-scheme: "dark";
+  --body-rotate: rotateY(0deg);
+  --background-position: 0 0;
+  --body-height: 380px;
+  --login-display: flex;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.d-none {
+  display: none !important;
+}
+
+body {
+  background-image: url("https://t3.ftcdn.net/jpg/03/99/24/82/360_F_399248286_Ogm0T8CFeauN4Hdn42FqWfsCE02dJBbX.jpg");
+  width: 100vw;
+  min-height: 100vh;
+  background-repeat: repeat;
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-position 1s;
+  background-position: var(--background-position);
+}
+body * {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  perspective: 1000px;
+}
+@media screen and (max-width: 385px) {
+  .container {
+    width: 95%;
+  }
+}
+.container .header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.container .body {
+  width: 100%;
+  height: var(--body-height);
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s, height 0.5s;
+  transform: var(--body-rotate);
+  box-shadow: 0px 0px 4px 5px #163352;
+  border-radius: 5px;
+}
+
+.header .header-titles {
+  font-size: 1.8rem;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  user-select: none;
+  text-shadow: 0px 0px 3px #fff;
+}
+.header .header-titles span:nth-child(1) {
+  margin-right: 25px;
+}
+.header #header-toggler-checkbox {
+  display: none;
+}
+.header #header-toggler-checkbox:checked ~ label[for=header-toggler-checkbox] .header-toggler-circle {
+  left: 90%;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.header .header-toggler {
+  width: 40px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: transparent;
+  box-shadow: 0px 0px 1px 1px #0d6efd;
+  margin-top: 10px;
+  position: relative;
+  cursor: pointer;
+}
+.header .header-toggler .header-toggler-circle {
+  width: 25px;
+  height: 25px;
+  background-color: #0d6efd;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  transition: left 0.4s, transform 0.4s 0.1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .header-toggler .header-toggler-circle .toggler-arrow-icon {
+  width: 18px;
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+.body .form-wave {
+  position: absolute;
+  bottom: 0;
+  transform: rotate(180deg);
+  height: 120px;
+  width: 200%;
+}
+.body .login-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #26425f;
+}
+.body .login-container .login-content, .body .login-container .signup-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+.body .signup-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #26425f;
+  transform: rotateY(180deg);
+}
+.body .signup-container .signup-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+
+.login-content, .signup-content {
+  display: var(--login-display);
+  flex-direction: column;
+  align-items: center;
+}
+.login-content .login-header, .signup-content .login-header, .signup-content .signup-header {
+  text-align: center;
+  margin-top: 10px;
+}
+.login-content .login-header .login-header-icon, .signup-content .login-header .login-header-icon, .signup-content .signup-header .login-header-icon, .signup-content .signup-header .signup-header-icon {
+  display: inline-block;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  padding: 10px;
+}
+.login-content .login-header .login-header-icon svg, .signup-content .login-header .login-header-icon svg, .signup-content .signup-header .login-header-icon svg, .signup-content .signup-header .signup-header-icon svg {
+  width: 32px;
+}
+.login-content .login-input-container, .signup-content .login-input-container, .signup-content .signup-input-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 75%;
+}
+@media screen and (max-width: 450px) {
+  .login-content .login-input-container, .signup-content .login-input-container, .signup-content .signup-input-container {
+    width: 85%;
+  }
+}
+.login-content .forget-password, .signup-content .forget-password {
+  width: 92%;
+  text-align: left;
+  padding: 4px;
+  font-size: 1.15rem;
+  color: #617ac7;
+  cursor: pointer;
+}
+
+.login-input, .signup-input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 100px;
+  width: 100%;
+  height: 45px;
+  margin-top: 15px;
+  transition: box-shadow 0.3s;
+}
+.login-input .login-input-icon, .signup-input .login-input-icon, .signup-input .signup-input-icon {
+  width: auto;
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  transform: scale(1.2);
+  transition: transform 0.1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+.login-input .login-input-icon svg, .signup-input .login-input-icon svg, .signup-input .signup-input-icon svg {
+  width: 17px;
+  stroke-width: 2px;
+  stroke: rgba(255, 255, 255, 0.7);
+}
+.login-input .login-input-input, .signup-input .login-input-input, .signup-input .signup-input-input {
+  width: 80%;
+  background-color: transparent;
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.9);
+  padding-left: 10px;
+  outline: none;
+  border: none;
+}
+.login-input .login-input-input::placeholder, .signup-input .login-input-input::placeholder, .signup-input .signup-input-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.1s;
+}
+.login-input .login-input-input:focus::placeholder, .signup-input .login-input-input:focus::placeholder, .signup-input .signup-input-input:focus::placeholder {
+  color: transparent;
+}
+
+.login-button-container, .signup-button-container {
+  margin-top: 15px;
+}
+.login-button-container .login-button, .signup-button-container .login-button, .signup-button-container .signup-button {
+  width: 120px;
+  height: 40px;
+  background-color: #0E2A47;
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px 1px #0E2A47;
+  transition: box-shadow 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-button-container .login-button .login-button-title, .signup-button-container .login-button .login-button-title, .signup-button-container .signup-button .login-button-title, .signup-button-container .signup-button .signup-button-title {
+  position: relative;
+  left: 10px;
+  transition: left 0.2s;
+}
+.login-button-container .login-button .login-button-icon, .signup-button-container .login-button .login-button-icon, .signup-button-container .signup-button .login-button-icon, .signup-button-container .signup-button .signup-button-icon {
+  width: 17px;
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 2px;
+  margin-left: 4px;
+  margin-top: 6px;
+  opacity: 0;
+  transition: opacity 0.7s;
+}
+.login-button-container .login-button:hover, .signup-button-container .login-button:hover, .signup-button-container .signup-button:hover, .login-button-container .login-button:focus, .signup-button-container .login-button:focus, .signup-button-container .signup-button:focus {
+  box-shadow: 0px 0px 25px 5px #0E2A47;
+}
+.login-button-container .login-button:hover .login-button-icon, .login-button-container .login-button:hover .signup-button-container .signup-button .signup-button-icon, .signup-button-container .login-button:hover .login-button-icon, .signup-button-container .login-button:hover .signup-button .signup-button-icon, .signup-button-container .signup-button .login-button:hover .signup-button-icon, .signup-button-container .signup-button:hover .login-button-icon, .signup-button-container .signup-button:hover .signup-button-icon, .login-button-container .login-button:focus .login-button-icon, .login-button-container .login-button:focus .signup-button-container .signup-button .signup-button-icon, .signup-button-container .login-button:focus .login-button-icon, .signup-button-container .login-button:focus .signup-button .signup-button-icon, .signup-button-container .signup-button .login-button:focus .signup-button-icon, .signup-button-container .signup-button:focus .login-button-icon, .signup-button-container .signup-button:focus .signup-button-icon {
+  opacity: 1;
+}
+.login-button-container .login-button:hover .login-button-title, .login-button-container .login-button:hover .signup-button-container .signup-button .signup-button-title, .signup-button-container .login-button:hover .login-button-title, .signup-button-container .login-button:hover .signup-button .signup-button-title, .signup-button-container .signup-button .login-button:hover .signup-button-title, .signup-button-container .signup-button:hover .login-button-title, .signup-button-container .signup-button:hover .signup-button-title, .login-button-container .login-button:focus .login-button-title, .login-button-container .login-button:focus .signup-button-container .signup-button .signup-button-title, .signup-button-container .login-button:focus .login-button-title, .signup-button-container .login-button:focus .signup-button .signup-button-title, .signup-button-container .signup-button .login-button:focus .signup-button-title, .signup-button-container .signup-button:focus .login-button-title, .signup-button-container .signup-button:focus .signup-button-title {
+  left: 0;
+}
+
+.signup-content {
+  display: flex;
+}
+.signup-content .signup-header .signup-header-icon svg {
+  width: 32px;
+}
+
+.signup-button-container {
+  margin-top: 20px;
+}
+.login-input-icon.focused-icon, .signup-input .focused-icon.signup-input-icon {
+  transform: scale(1.4);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.signup-input-icon.focused-icon {
+  transform: scale(1.4);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.input-focused {
+  box-shadow: 0px 0px 3px 2px rgba(255, 255, 255, 0.15);
+}
